@@ -10,6 +10,8 @@ let  a = 10,
 
      const saludo = c + d;
 
+     c = 'Hola de nuevo';
+
      // console.table({a, b, c, d, x});
 
      // console.log('%c Mis variables', 'color:blue; font-weight: bold');
