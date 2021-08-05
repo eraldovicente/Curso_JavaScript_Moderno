@@ -1,4 +1,5 @@
 
+// alert('Hola desde app.js');
 
 // console.log( console.log('Hola Mundo') );
 
@@ -20,3 +21,5 @@ let  a = 10,
      // console.log({ d });
 
 // c = 20; // no se puede hacer
+
+var miNombre = 'Fernando';
