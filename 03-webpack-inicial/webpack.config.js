@@ -1,5 +1,5 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
- 
+const HtmlWebPack = require('html-webpack-plugin');
+const MiniCssExtract = require("mini-css-extract-plugin"); 
  
 module.exports = {
  
@@ -14,20 +14,29 @@ module.exports = {
                 loader: 'html-loader',
                 options: {
                     sources: false,
-                    minimize: true
+                    minimize: false
                 },
             },
             {
                test: /\.css$/i,
+               exclude: /styles.css$/,
                use: ['style-loader', 'css-loader']
+            },
+            {
+                 test: /styles.css$/,
+                 use: [ MiniCssExtract.loader, 'css-loader' ]
             }
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
+        new HtmlWebPack({
             template: './src/index.html',
             filename: './index.html'
         }),
+        new MiniCssExtract({
+             filename: '[name].[fullhash].css',
+             ignoreOrder: false
+        })
     ]
  
     
