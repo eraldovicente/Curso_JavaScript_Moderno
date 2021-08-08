@@ -44,28 +44,24 @@ class Persona {
 }
 
 
-const spiderman = new Persona( 'Peter Parker', 'Spider', 'Soy tu amigable vecino spiderman' );
-const ironman = new Persona( 'Tony Stark', 'Ironman', 'Yo soy Ironman' );
-// console.log( ironman );
+class Heroe extends Persona {
 
-// spiderman.quienSoy(); 
-// ironman.quienSoy(); 
+     clan = 'sin clan';
 
-spiderman.miFrase(); 
-// ironman.miFrase(); 
+     constructor(nombre, codigo, frase) {
+          super(nombre, codigo, frase);
 
-spiderman.setComidaFavorita = 'El pie de cereza de la tía May';
-// spiderman.comida = 'Duende Verde';
+          this.clan = 'Los Avengers';
+     }
 
-// console.log( spiderman.getComidaFavorita );
-// console.log( spiderman );
+     quienSoy() {
+          console.log(`Soy ${ this.nombre }, ${ this.clan }`);
+          super.quienSoy();
+     }
+}
 
-// Persona._conteo = 2;
-console.log('Conteo estático', Persona._conteo );
-console.log( Persona.conteo );
-Persona.mensaje();
 
-Persona.propiedadeExterna = 'Hola Mundo';
+const spiderman = new Heroe( 'Peter Parker', 'Spider', 'Soy tu amigable vecino spiderman' );
 
-console.log( Persona.propiedadeExterna );
-console.log( Persona );
+console.log( spiderman );
+spiderman.quienSoy();
