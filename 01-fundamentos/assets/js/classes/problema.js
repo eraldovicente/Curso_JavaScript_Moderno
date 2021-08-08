@@ -28,6 +28,6 @@ function Persona(nombre, edad) {
 }
 
 
-const maria = new Persona('Gabriel', 6);
-console.log( maria );
-maria.imprimir();
+const gabriel = new Persona('Gabriel', 6);
+console.log( gabriel );
+gabriel.imprimir();
