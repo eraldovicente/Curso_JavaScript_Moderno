@@ -4,6 +4,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = {
  
     mode: 'development',
+    output: {
+         clean: true
+    },
     module: {
         rules: [
             {
