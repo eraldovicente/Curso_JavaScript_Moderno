@@ -1,5 +1,6 @@
-const HtmlWebPack = require('html-webpack-plugin');
+const HtmlWebPack    = require('html-webpack-plugin');
 const MiniCssExtract = require("mini-css-extract-plugin"); 
+const CopyPlugin     = require("copy-webpack-plugin");
  
 module.exports = {
  
@@ -19,17 +20,17 @@ module.exports = {
             },
             {
                test: /\.css$/i,
-               exclude: /styles.css$/,
+               exclude: /styles.css$/i,
                use: ['style-loader', 'css-loader']
             },
             {
-                 test: /styles.css$/,
+                 test: /styles.css$/i,
                  use: [ MiniCssExtract.loader, 'css-loader' ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/,
-                loader: 'file-loader'
-            }
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+            },
         ]
     },
     plugins: [
@@ -40,6 +41,14 @@ module.exports = {
         new MiniCssExtract({
              filename: '[name].[fullhash].css',
              ignoreOrder: false
+        }),
+        new CopyPlugin({
+            patterns: [                
+                {
+                    from: "src/assets",
+                    to: "assets/"
+                },
+            ]
         })
     ]
  
