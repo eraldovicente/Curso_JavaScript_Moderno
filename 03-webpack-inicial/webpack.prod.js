@@ -32,9 +32,27 @@ module.exports = {
                  use: [ MiniCssExtract.loader, 'css-loader' ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
-                loader: 'file-loader',
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '/assets/img/[name].[fullhash].[ext]',
+                            esModule: false
+                        }
+                    }
+                ]
             },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
         ]
     },
 
@@ -42,7 +60,9 @@ module.exports = {
         minimize: true,
         minimizer: [
             new CssMinimizer(),
-            new Terser()
+            new Terser({
+                extractComments: false
+            })
         ]
     },
 
@@ -55,14 +75,14 @@ module.exports = {
              filename: '[name].[fullhash].css',
              ignoreOrder: false
         }),
-        new CopyPlugin({
-            patterns: [                
-                {
-                    from: "src/assets",
-                    to: "assets/"
-                },
-            ]
-        })
+        // new CopyPlugin({
+        //     patterns: [                
+        //         {
+        //             from: "src/assets/",
+        //             to: "assets/"
+        //         },
+        //     ]
+        // })
     ]
  
     
