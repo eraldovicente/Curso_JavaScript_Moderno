@@ -48,11 +48,15 @@ divTodoList.addEventListener('click', (event) => {
      const todoElemento   = event.target.parentElement.parentElement;
      const todoId         = todoElemento.getAttribute('data-id');
 
-     if ( nombreElemento.includes('input') ) {
+     if ( nombreElemento.includes('input') ) { // click en el check
           todoList.marcarCompletado( todoId );
           todoElemento.classList.toggle('completed');
-     }
 
-     console.log(todoList);
+     } else if( nombreElemento.includes('button') ) { // hay que borrar el todo
+
+          todoList.eliminarTodo( todoId );
+          divTodoList.removeChild( todoElemento );
+
+     }
 
 });
