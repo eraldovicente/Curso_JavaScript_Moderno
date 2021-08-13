@@ -3,7 +3,11 @@
 // obtenerUsuarios().then( console.log );
 // init();
 
-import * as CRUD from './js/crud-provider';
+import { init } from './js/archivos-page';
+
+init();
+
+// import * as CRUD from './js/crud-provider';
 
 // CRUD.getUsuario( 1 ).then( console.log );
 
@@ -19,6 +23,6 @@ import * as CRUD from './js/crud-provider';
 // }).then( console.log );
 
 
-CRUD.borrarUsuario( 1 ).then( console.log );
+// CRUD.borrarUsuario( 1 ).then( console.log );
 
 
