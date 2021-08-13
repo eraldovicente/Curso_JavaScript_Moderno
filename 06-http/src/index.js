@@ -13,11 +13,12 @@ import * as CRUD from './js/crud-provider';
 // }).then( console.log );
 
 
-CRUD.actualizarUsuario( 1, {
-     name: 'Biana',
-     job: 'gata'
-}).then( console.log );
+// CRUD.actualizarUsuario( 1, {
+//      name: 'Biana',
+//      job: 'gata'
+// }).then( console.log );
 
 
+CRUD.borrarUsuario( 1 ).then( console.log );
 
 
